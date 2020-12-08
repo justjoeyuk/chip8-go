@@ -55,10 +55,7 @@ type Memory struct {
 	sp byte
 }
 
-/*
-	NewMemory - Returns an instance of the Chip8 with the
-	Default Character Set at memory location 0x00
-*/
+// NewMemory - Returns an instance of the Chip8 with theDefault Character Set at memory location 0x00
 func NewMemory() *Memory {
 	m := &Memory{}
 
@@ -102,7 +99,7 @@ func (m *Memory) PushStack(val uint16) {
 	m.sp += 1
 }
 
-// PushStack - Pop an address from the stack and decrement the Stack Pointer
+// PopStack - Pop an address from the stack and decrement the Stack Pointer
 func (m *Memory) PopStack() uint16 {
 	addr := m.stack[m.sp]
 	m.sp -= 1

@@ -26,11 +26,7 @@ func NewChip8(writer PixelWriter) *Chip8 {
 	return chip8
 }
 
-/*
-	HandleKeyPressed -g tracks if the keyboard is waiting for
-	a key press. If it's waiting for a key, and no key is pressed
-	then return false. Otherwise, return true.
-*/
+// HandleKeyPressed -g tracks if the keyboard is waiting for a key press. If it's waiting for a key, and no key is pressed then return false. Otherwise, return true.
 func (c *Chip8) HandleKeyPressed(key *byte) bool {
 	if key != nil {
 		c.Keyboard.LastKeyPressed = *key

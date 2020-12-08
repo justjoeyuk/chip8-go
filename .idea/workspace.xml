@@ -22,7 +22,6 @@
     <list default="true" id="53b8843a-9a86-4128-ad65-6833685dac0b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/chip8/chip8.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/chip8/chip8.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/chip8/chip8_keyboard.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/chip8/chip8_keyboard.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/chip8/chip8_memory.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/chip8/chip8_memory.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/chip8/chip8_screen.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/chip8/chip8_screen.go" afterDir="false" />
     </list>
