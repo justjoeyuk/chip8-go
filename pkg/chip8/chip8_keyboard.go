@@ -3,7 +3,7 @@ package chip8
 type Keyboard struct {
 	keys [16]bool
 
-	LastKeyPressed byte
+	LastKeyPressed     byte
 	WaitingForKeyPress bool
 }
 

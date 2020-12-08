@@ -24,7 +24,7 @@ func TestMemoryGetTwoBytes(t *testing.T) {
 	const loc = 200
 
 	m.Set(loc, 0xF1)
-	m.Set(loc + 1, 0xF2)
+	m.Set(loc+1, 0xF2)
 
 	twoBytes := m.GetTwoBytes(loc)
 
@@ -60,7 +60,7 @@ func TestGetNBytes(t *testing.T) {
 	var bytes [numBytes]byte
 
 	for i := 0; i < numBytes; i++ {
-		bytes[i] = m.ram[fromAddress + i]
+		bytes[i] = m.ram[fromAddress+i]
 	}
 
 	fmt.Printf("Bytes collected: %s", hex.EncodeToString(bytes[:]))

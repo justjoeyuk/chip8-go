@@ -1,13 +1,13 @@
 package chip8
 
 const (
-	EmulatorWidth = 64
+	EmulatorWidth  = 64
 	EmulatorHeight = 32
 )
 
 type Chip8 struct {
-	Memory *Memory
-	Screen *Screen
+	Memory   *Memory
+	Screen   *Screen
 	Keyboard *Keyboard
 }
 
@@ -28,7 +28,7 @@ func (c *Chip8) HandleKeyPressed(key *byte) bool {
 	}
 
 	if c.Keyboard.WaitingForKeyPress {
-		if key == nil  {
+		if key == nil {
 			return false
 		} else {
 			c.Keyboard.WaitingForKeyPress = false

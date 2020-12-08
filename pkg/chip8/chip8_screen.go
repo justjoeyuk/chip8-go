@@ -55,7 +55,7 @@ func (s *Screen) DrawSprite(x, y int, sprite []byte) bool {
 		rowByte := sprite[i]
 
 		for l := 0; l <= 8; l++ {
-			if (rowByte << l) & 0b10000000 == 0 {
+			if (rowByte<<l)&0b10000000 == 0 {
 				continue
 			}
 
@@ -63,7 +63,7 @@ func (s *Screen) DrawSprite(x, y int, sprite []byte) bool {
 				pixelCollision = s.GetPixelState(x, y)
 			}
 
-			s.SetPixelState(x + l, y + i, true)
+			s.SetPixelState(x+l, y+i, true)
 		}
 	}
 

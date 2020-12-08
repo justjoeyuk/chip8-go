@@ -20,6 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53b8843a-9a86-4128-ad65-6833685dac0b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/game.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.exe" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +61,12 @@
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/GolandProjects/tabb-booking-service" />
-    <property name="settings.editor.selected.configurable" value="go.vgo" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\JoeyC\OneDrive\Desktop\CHIP8-Go" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -74,6 +82,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -87,14 +96,18 @@
       <screen x="0" y="0" width="1280" height="760" />
     </state>
     <state x="321" y="116" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.760@0.0.1280.760" timestamp="1607337971587" />
+    <state x="309" y="159" key="EditFileWatcherDialog" timestamp="1607447082153">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="309" y="159" key="EditFileWatcherDialog/0.0.1280.760@0.0.1280.760" timestamp="1607447082153" />
     <state x="421" y="135" key="FileChooserDialogImpl" timestamp="1607337992914">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
     <state x="421" y="135" key="FileChooserDialogImpl/0.0.1280.760@0.0.1280.760" timestamp="1607337992914" />
-    <state x="142" y="26" key="SettingsEditor" timestamp="1607230283457">
+    <state x="142" y="26" key="SettingsEditor" timestamp="1607447084691">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state x="142" y="26" key="SettingsEditor/0.0.1280.760@0.0.1280.760" timestamp="1607230283457" />
+    <state x="142" y="26" key="SettingsEditor/0.0.1280.760@0.0.1280.760" timestamp="1607447084691" />
     <state x="303" y="81" width="672" height="678" key="search.everywhere.popup" timestamp="1607277930339">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
