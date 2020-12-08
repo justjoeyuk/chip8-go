@@ -1,5 +1,6 @@
 package chip8
 
+// Keyboard - Interpretation of the CHIP8 Keyboard
 type Keyboard struct {
 	keys [16]bool
 
@@ -15,17 +16,17 @@ func NewKeyboard() *Keyboard {
 	return &Keyboard{}
 }
 
-// IsKeyDown returns if a given key is pressed or not
+// IsKeyDown - returns if a given key is pressed or not
 func (k *Keyboard) IsKeyDown(key byte) bool {
 	return k.keys[key]
 }
 
-// IsKeyDown set the given key to true (pressed)
+// PressKey - set the given key to true (pressed)
 func (k *Keyboard) PressKey(key byte) {
 	k.keys[key] = true
 }
 
-// IsKeyDown set the given key to false (released)
+// ReleaseKey - set the given key to false (released)
 func (k *Keyboard) ReleaseKey(key byte) {
 	k.keys[key] = false
 }

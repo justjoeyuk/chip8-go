@@ -18,7 +18,7 @@ type Screen struct {
 	writer PixelWriter
 }
 
-/*	NewScreen - Returns an instance of the Screen */
+// NewScreen - Returns an instance of the Screen
 func NewScreen(writer PixelWriter) *Screen {
 	s := &Screen{
 		writer,
@@ -27,8 +27,10 @@ func NewScreen(writer PixelWriter) *Screen {
 	return s
 }
 
-/*	EnablePixel - XOR a pixel onto the PixelWriter at coordinates (x,y)
-	and ensure it wraps if out of bounds */
+/*
+	EnablePixel - XOR a pixel onto the PixelWriter at coordinates (x,y)
+	and ensure it wraps if out of bounds
+*/
 func (s *Screen) EnablePixel(x, y int) {
 	pixelColor := color.Black
 
@@ -59,7 +61,8 @@ func (s *Screen) GetPixelState(x, y int) bool {
 	return false
 }
 
-/*	DrawSprite - Draw a Sprite to the PixelWriter
+/*
+	DrawSprite - Draw a Sprite to the PixelWriter
 	and return if there was a collision with pixels
 */
 func (s *Screen) DrawSprite(x, y int, sprite []byte) bool {

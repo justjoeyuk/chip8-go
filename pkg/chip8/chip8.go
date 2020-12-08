@@ -4,7 +4,7 @@ const (
 	// EmulatorWidth - Width of the Emulators Screen
 	EmulatorWidth = 64
 
-	// EmulatorWidth - Height of the Emulators Screen
+	// EmulatorHeight - Height of the Emulators Screen
 	EmulatorHeight = 32
 )
 
@@ -26,7 +26,8 @@ func NewChip8(writer PixelWriter) *Chip8 {
 	return chip8
 }
 
-/*	HandleKeyPressed tracks if the keyboard is waiting for
+/*
+	HandleKeyPressed -g tracks if the keyboard is waiting for
 	a key press. If it's waiting for a key, and no key is pressed
 	then return false. Otherwise, return true.
 */
@@ -38,9 +39,9 @@ func (c *Chip8) HandleKeyPressed(key *byte) bool {
 	if c.Keyboard.WaitingForKeyPress {
 		if key == nil {
 			return false
-		} else {
-			c.Keyboard.WaitingForKeyPress = false
 		}
+
+		c.Keyboard.WaitingForKeyPress = false
 	}
 
 	return true

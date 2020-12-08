@@ -1,7 +1,10 @@
 package chip8
 
-const PROGRAM_START_ADDRESS = 0x200
-const HEX_SPRITE_ADDRESS = 0x00
+// ProgramStartAddress - The start address of most CHIP8 Programs
+const ProgramStartAddress = 0x200
+
+// HexSpriteAddress - The address in RAM where the Character Sprites are saved
+const HexSpriteAddress = 0x00
 
 // Sprites 0 to F, to be stored in Memory at location 0x00
 func defaultCharacterSet() []byte {
@@ -52,12 +55,14 @@ type Memory struct {
 	sp byte
 }
 
-/*	NewMemory - Returns an instance of the Chip8 with the
-	Default Character Set at memory location 0x00 */
+/*
+	NewMemory - Returns an instance of the Chip8 with the
+	Default Character Set at memory location 0x00
+*/
 func NewMemory() *Memory {
 	m := &Memory{}
 
-	copy(m.ram[HEX_SPRITE_ADDRESS:], defaultCharacterSet())
+	copy(m.ram[HexSpriteAddress:], defaultCharacterSet())
 
 	return m
 }
@@ -72,7 +77,7 @@ func (m *Memory) Get(loc int) byte {
 	return m.ram[loc]
 }
 
-// Get two bytes (a uint16) from memory
+// GetTwoBytes (a uint16) from memory
 func (m *Memory) GetTwoBytes(loc int) uint16 {
 	b1 := uint16(m.Get(loc))
 	b2 := uint16(m.Get(loc + 1))
