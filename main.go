@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/justjoeyuk/chip8-go/pkg/chip8"
+	"github.com/justjoeyuk/chip8-go/pkg/game"
 )
 
 func main() {
@@ -15,10 +16,10 @@ func main() {
 
 	chip8Screen := ebiten.NewImage(64, 32)
 
-	g := &Game{
-		chip8Screen:   chip8Screen,
-		scaleOptions:  scaleOptions,
-		chip8Emulator: chip8.NewChip8(chip8Screen),
+	g := &game.Game{
+		Chip8Screen:   chip8Screen,
+		ScaleOptions:  scaleOptions,
+		Chip8Emulator: chip8.NewChip8(chip8Screen),
 	}
 
 	if err := ebiten.RunGame(g); err != nil {

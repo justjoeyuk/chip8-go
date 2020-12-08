@@ -25,6 +25,7 @@ func defaultCharacterSet() []byte {
 	}
 }
 
+// Memory - Interpretation of the CHIP8 Memory and Stack
 type Memory struct {
 	// 4K RAM
 	ram [4096]byte
@@ -51,6 +52,8 @@ type Memory struct {
 	sp byte
 }
 
+/*	NewMemory - Returns an instance of the Chip8 with the
+	Default Character Set at memory location 0x00 */
 func NewMemory() *Memory {
 	m := &Memory{}
 
@@ -59,14 +62,17 @@ func NewMemory() *Memory {
 	return m
 }
 
+// Set a byte at a given memory address location
 func (m *Memory) Set(loc int, val byte) {
 	m.ram[loc] = val
 }
 
+// Get a byte from a given memory address location
 func (m *Memory) Get(loc int) byte {
 	return m.ram[loc]
 }
 
+// Get two bytes (a uint16) from memory
 func (m *Memory) GetTwoBytes(loc int) uint16 {
 	b1 := uint16(m.Get(loc))
 	b2 := uint16(m.Get(loc + 1))
@@ -74,6 +80,7 @@ func (m *Memory) GetTwoBytes(loc int) uint16 {
 	return b1<<8 | b2
 }
 
+// GetNBytes from a given location in memory, returned as an array of bytes
 func (m *Memory) GetNBytes(loc, numBytes int) []byte {
 	bytes := make([]byte, numBytes)
 
@@ -84,11 +91,13 @@ func (m *Memory) GetNBytes(loc, numBytes int) []byte {
 	return bytes
 }
 
+// PushStack - Push an address on to the stack and increment the Stack Pointer
 func (m *Memory) PushStack(val uint16) {
 	m.stack[m.sp+1] = val
 	m.sp += 1
 }
 
+// PushStack - Pop an address from the stack and decrement the Stack Pointer
 func (m *Memory) PopStack() uint16 {
 	addr := m.stack[m.sp]
 	m.sp -= 1

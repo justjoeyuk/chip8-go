@@ -4,15 +4,21 @@ import (
 	"image/color"
 )
 
+// PixelWriter - An interface able to Set pixels and fetch pixels At a location
 type PixelWriter interface {
+	// Set a pixel at a given coordinate (x, y), a given color
 	Set(x, y int, color color.Color)
+
+	// At - Returns the color of the pixel at a given coordinate (x, y)
 	At(x int, y int) color.Color
 }
 
+// Screen - Interpretation of the CHIP8 Screen
 type Screen struct {
 	writer PixelWriter
 }
 
+/*	NewScreen - Returns an instance of the Screen */
 func NewScreen(writer PixelWriter) *Screen {
 	s := &Screen{
 		writer,
@@ -21,14 +27,14 @@ func NewScreen(writer PixelWriter) *Screen {
 	return s
 }
 
-func (s *Screen) SetPixelState(x, y int, enabled bool) {
+/*	EnablePixel - XOR a pixel onto the PixelWriter at coordinates (x,y)
+	and ensure it wraps if out of bounds */
+func (s *Screen) EnablePixel(x, y int) {
 	pixelColor := color.Black
 
-	if enabled {
-		existingState := s.GetPixelState(x, y)
-		if !existingState {
-			pixelColor = color.White
-		}
+	existingState := s.GetPixelState(x, y)
+	if !existingState {
+		pixelColor = color.White
 	}
 
 	x = x % EmulatorWidth
@@ -37,6 +43,12 @@ func (s *Screen) SetPixelState(x, y int, enabled bool) {
 	s.writer.Set(x, y, pixelColor)
 }
 
+// DisablePixel - Disable a pixel on the PixelWriter at coordinates (x, y)
+func (s *Screen) DisablePixel(x, y int) {
+	s.writer.Set(x, y, color.Black)
+}
+
+// GetPixelState - Returns the state of a pixel on the PixelWriter (on/off)
 func (s *Screen) GetPixelState(x, y int) bool {
 	pixelColor := s.writer.At(x, y)
 
@@ -47,7 +59,9 @@ func (s *Screen) GetPixelState(x, y int) bool {
 	return false
 }
 
-//Draw Sprite - Draw a Sprite, wrap the sides
+/*	DrawSprite - Draw a Sprite to the PixelWriter
+	and return if there was a collision with pixels
+*/
 func (s *Screen) DrawSprite(x, y int, sprite []byte) bool {
 	pixelCollision := false
 
@@ -63,7 +77,7 @@ func (s *Screen) DrawSprite(x, y int, sprite []byte) bool {
 				pixelCollision = s.GetPixelState(x, y)
 			}
 
-			s.SetPixelState(x+l, y+i, true)
+			s.EnablePixel(x+l, y+i)
 		}
 	}
 
