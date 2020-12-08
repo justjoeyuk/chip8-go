@@ -69,22 +69,3 @@ func TestGetNBytes(t *testing.T) {
 		t.Errorf("The bytes extracted did not match the bytes expected")
 	}
 }
-
-//func TestDrawSprite(t *testing.T) {
-//	c := NewChip8(ebiten.NewImage(64, 32))
-//
-//	const rows = 5
-//	const location = 0x05
-//
-//	for i := 0; i <= rows; i++ {
-//		rowByte := *(sprite + i)
-//
-//		for l := 0; l <= 8; l++ {
-//			if (rowByte << l) & 0b10000000 == 0 {
-//				continue
-//			}
-//
-//			c.Screen.
-//		}
-//	}
-//}
