@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/justjoeyuk/chip8-go/pkg/chip8"
 )
@@ -71,9 +70,6 @@ func main() {
 		scaleOptions: scaleOptions,
 		chip8Emulator: chip8.NewChip8(chip8Screen),
 	}
-
-	fmt.Printf("Waiting for Key Press\n")
-	g.chip8Emulator.Keyboard.WaitingForKeyPress = true
 
 	if err := ebiten.RunGame(g); err != nil {
 		panic(err)
