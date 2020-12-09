@@ -11,6 +11,9 @@ type PixelWriter interface {
 
 	// At - Returns the color of the pixel at a given coordinate (x, y)
 	At(x int, y int) color.Color
+
+	// Clear - Resets all pixels
+	Clear()
 }
 
 // Screen - Interpretation of the CHIP8 Screen
@@ -45,6 +48,11 @@ func (s *Screen) EnablePixel(x, y int) {
 // DisablePixel - Disable a pixel on the PixelWriter at coordinates (x, y)
 func (s *Screen) DisablePixel(x, y int) {
 	s.writer.Set(x, y, color.Black)
+}
+
+// ClearPixels - Disable all pixels on the PixelWriter
+func (s *Screen) ClearPixels() {
+	s.writer.Clear()
 }
 
 // GetPixelState - Returns the state of a pixel on the PixelWriter (on/off)

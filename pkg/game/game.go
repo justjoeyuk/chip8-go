@@ -47,6 +47,15 @@ func (g *Game) Update() error {
 		return nil
 	}
 
+	counter := g.Chip8Emulator.GetProgramCounter()
+
+	nextCode := g.Chip8Emulator.Memory.GetTwoBytes(counter)
+	g.Chip8Emulator.ExecOp(nextCode)
+
+	if counter == g.Chip8Emulator.GetProgramCounter() {
+		g.Chip8Emulator.IncrementProgramCounter()
+	}
+
 	return nil
 }
 

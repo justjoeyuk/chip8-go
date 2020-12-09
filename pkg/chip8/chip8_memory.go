@@ -28,7 +28,7 @@ func defaultCharacterSet() []byte {
 	}
 }
 
-// Memory - Interpretation of the CHIP8 Memory and Stack
+// Memory - Interpretation of the Chip8 Memory and Stack
 type Memory struct {
 	// 4K RAM
 	ram [4096]byte
@@ -36,46 +36,36 @@ type Memory struct {
 	// Stack - 16 levels of subroutine nesting
 	stack [16]uint16
 
-	// 16 8-bit General Purpose Registers
-	v [16]byte
-
-	// Memory Address Register
-	i uint16
-
-	// Delay Timer Register
-	dt byte
-
-	// Sound Timer Register
-	st byte
-
-	// Program Counter Register
-	pc uint16
-
-	// Stack Pointer Register
-	sp byte
+	// Registers - The collection of registers (and meta registers) on the Chip8
+	registers Registers
 }
 
 // NewMemory - Returns an instance of the Chip8 with theDefault Character Set at memory location 0x00
-func NewMemory() *Memory {
+func NewMemory(romData []byte) *Memory {
 	m := &Memory{}
 
+	if len(romData) > len(m.ram)-ProgramStartAddress {
+		panic("Could not load ROM into emulator memory. Too big.")
+	}
+
 	copy(m.ram[HexSpriteAddress:], defaultCharacterSet())
+	copy(m.ram[ProgramStartAddress:], romData)
 
 	return m
 }
 
 // Set a byte at a given memory address location
-func (m *Memory) Set(loc int, val byte) {
+func (m *Memory) Set(loc uint16, val byte) {
 	m.ram[loc] = val
 }
 
 // Get a byte from a given memory address location
-func (m *Memory) Get(loc int) byte {
+func (m *Memory) Get(loc uint16) byte {
 	return m.ram[loc]
 }
 
 // GetTwoBytes (a uint16) from memory
-func (m *Memory) GetTwoBytes(loc int) uint16 {
+func (m *Memory) GetTwoBytes(loc uint16) uint16 {
 	b1 := uint16(m.Get(loc))
 	b2 := uint16(m.Get(loc + 1))
 
@@ -83,11 +73,11 @@ func (m *Memory) GetTwoBytes(loc int) uint16 {
 }
 
 // GetNBytes from a given location in memory, returned as an array of bytes
-func (m *Memory) GetNBytes(loc, numBytes int) []byte {
+func (m *Memory) GetNBytes(loc uint16, numBytes int) []byte {
 	bytes := make([]byte, numBytes)
 
 	for i := 0; i < numBytes; i++ {
-		bytes[i] = m.ram[loc+i]
+		bytes[i] = m.ram[int(loc)+i]
 	}
 
 	return bytes
@@ -95,14 +85,14 @@ func (m *Memory) GetNBytes(loc, numBytes int) []byte {
 
 // PushStack - Push an address on to the stack and increment the Stack Pointer
 func (m *Memory) PushStack(val uint16) {
-	m.stack[m.sp+1] = val
-	m.sp += 1
+	m.stack[m.registers.sp+1] = val
+	m.registers.sp += 1
 }
 
 // PopStack - Pop an address from the stack and decrement the Stack Pointer
 func (m *Memory) PopStack() uint16 {
-	addr := m.stack[m.sp]
-	m.sp -= 1
+	addr := m.stack[m.registers.sp]
+	m.registers.sp -= 1
 
 	return addr
 }

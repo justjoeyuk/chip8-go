@@ -20,7 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53b8843a-9a86-4128-ad65-6833685dac0b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/chip8/chip8_registers.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/chip8/chip8_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/chip8/chip8.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/chip8/chip8.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/chip8/chip8_memory.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/chip8/chip8_memory.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/chip8/chip8_memory_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/chip8/chip8_memory_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/chip8/chip8_screen.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/chip8/chip8_screen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/game/game.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/game/game.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,9 +125,9 @@
       <screen x="0" y="0" width="1280" height="760" />
     </state>
     <state x="347" y="113" width="594" height="534" key="find.popup/0.0.1280.760@0.0.1280.760" timestamp="1607447204484" />
-    <state x="303" y="81" width="672" height="678" key="search.everywhere.popup" timestamp="1607277930339">
+    <state x="303" y="81" width="672" height="678" key="search.everywhere.popup" timestamp="1607473679066">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state x="303" y="81" width="672" height="678" key="search.everywhere.popup/0.0.1280.760@0.0.1280.760" timestamp="1607277930339" />
+    <state x="303" y="81" width="672" height="678" key="search.everywhere.popup/0.0.1280.760@0.0.1280.760" timestamp="1607473679066" />
   </component>
 </project>

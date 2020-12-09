@@ -6,8 +6,21 @@ import (
 	"testing"
 )
 
+var validTestROM []byte
+var invalidTestROM [3899]byte
+
+func TestLoadInvalidRom(t *testing.T) {
+	defer func() {
+		if r := recover(); r == nil {
+			t.Errorf("The code did not panic")
+		}
+	}()
+
+	NewMemory(invalidTestROM[:])
+}
+
 func TestMemorySetGet(t *testing.T) {
-	m := NewMemory()
+	m := NewMemory(validTestROM)
 	const loc = 10
 	const expectedVal = 0xF8
 
@@ -20,7 +33,7 @@ func TestMemorySetGet(t *testing.T) {
 }
 
 func TestMemoryGetTwoBytes(t *testing.T) {
-	m := NewMemory()
+	m := NewMemory(validTestROM)
 	const loc = 200
 
 	m.Set(loc, 0xF1)
@@ -34,25 +47,25 @@ func TestMemoryGetTwoBytes(t *testing.T) {
 }
 
 func TestStackPushPop(t *testing.T) {
-	m := NewMemory()
+	m := NewMemory(validTestROM)
 	const addr = 0xF0F
 
 	m.PushStack(addr)
-	if m.sp != 1 {
+	if m.registers.sp != 1 {
 		t.Errorf("Stack Pointer did not Increment upon push")
 	}
 
 	if m.PopStack() != addr {
 		t.Errorf("Stack did not store correct memory address")
 
-		if m.sp != 0 {
+		if m.registers.sp != 0 {
 			t.Errorf("Stack Pointer did not decrement upon pop")
 		}
 	}
 }
 
 func TestGetNBytes(t *testing.T) {
-	m := NewMemory()
+	m := NewMemory(validTestROM)
 
 	const numBytes = 5
 	const fromAddress = 0x05
