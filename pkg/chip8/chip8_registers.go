@@ -1,5 +1,6 @@
 package chip8
 
+// Registers - of the Chip8 hardware
 type Registers struct {
 	// 16 8-bit General Purpose Registers
 	v [16]byte
