@@ -15,6 +15,7 @@ func main() {
 
 	ebiten.SetWindowSize(640, 320)
 	ebiten.SetWindowTitle("CHIP8 GO")
+	ebiten.SetVsyncEnabled(false)
 
 	// We should render the game at 64x32 and scale it up to 640x320
 	scaleOptions := &ebiten.DrawImageOptions{}
@@ -29,7 +30,7 @@ func main() {
 		panic("Could not read ROM data")
 	}
 
-	chip8Emulator := chip8.NewChip8(chip8Screen, fileData)
+	chip8Emulator := chip8.NewChip8(fileData)
 
 	g := &game.Game{
 		Chip8Screen:   chip8Screen,

@@ -7,8 +7,8 @@ const ProgramStartAddress = 0x200
 const HexSpriteAddress = 0x00
 
 // Sprites 0 to F, to be stored in Memory at location 0x00
-func defaultCharacterSet() []byte {
-	return []byte{
+func defaultCharacterSet() []uint8 {
+	return []uint8{
 		0xF0, 0x90, 0x90, 0x90, 0xF0, // 0
 		0x20, 0x60, 0x20, 0x20, 0x70, // 1
 		0xF0, 0x10, 0xF0, 0x80, 0xF0, // 2
@@ -31,7 +31,7 @@ func defaultCharacterSet() []byte {
 // Memory - Interpretation of the Chip8 Memory and Stack
 type Memory struct {
 	// 4K RAM
-	ram [4096]byte
+	ram [4096]uint8
 
 	// Stack - 16 levels of subroutine nesting
 	stack [16]uint16
@@ -41,7 +41,7 @@ type Memory struct {
 }
 
 // NewMemory - Returns an instance of the Chip8 with theDefault Character Set at memory location 0x00
-func NewMemory(romData []byte) *Memory {
+func NewMemory(romData []uint8) *Memory {
 	m := &Memory{}
 
 	if len(romData) > len(m.ram)-ProgramStartAddress {
@@ -55,25 +55,25 @@ func NewMemory(romData []byte) *Memory {
 }
 
 // Set a byte at a given memory address location
-func (m *Memory) Set(loc uint16, val byte) {
+func (m *Memory) Set(loc uint16, val uint8) {
 	m.ram[loc] = val
 }
 
 // Get a byte from a given memory address location
-func (m *Memory) Get(loc uint16) byte {
+func (m *Memory) Get(loc uint16) uint8 {
 	return m.ram[loc]
 }
 
 // GetTwoBytes (a uint16) from memory
 func (m *Memory) GetTwoBytes(loc uint16) uint16 {
-	b1 := uint16(m.Get(loc))
-	b2 := uint16(m.Get(loc + 1))
+	b1 := m.Get(loc)
+	b2 := m.Get(loc + 1)
 
-	return b1<<8 | b2
+	return uint16(b1)<<8 | uint16(b2)
 }
 
 // GetNBytes from a given location in memory, returned as an array of bytes
-func (m *Memory) GetNBytes(loc uint16, numBytes int) []byte {
+func (m *Memory) GetNBytes(loc uint16, numBytes int) []uint8 {
 	bytes := make([]byte, numBytes)
 
 	for i := 0; i < numBytes; i++ {

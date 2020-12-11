@@ -20,7 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53b8843a-9a86-4128-ad65-6833685dac0b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/chip8/chip8.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/chip8/chip8.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/chip8/chip8_keyboard.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/chip8/chip8_keyboard.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/chip8/chip8_memory.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/chip8/chip8_memory.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/chip8/chip8_registers.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/chip8/chip8_registers.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/chip8/chip8_screen.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/chip8/chip8_screen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/game/game.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/game/game.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +72,23 @@
       <recent name="C:\Users\JoeyC\OneDrive\Desktop\CHIP8-Go" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="CHIP8-Go" />
+      <working_directory value="$PROJECT_DIR$" />
+      <parameters value=".\bin\roms\CONNECT4" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="github.com/justjoeyuk/chip8-go" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build main.go" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
@@ -89,10 +113,10 @@
       <screen x="0" y="0" width="1280" height="760" />
     </state>
     <state x="433" y="214" key="#Go_Modules/0.0.1280.760@0.0.1280.760" timestamp="1607226864908" />
-    <state x="96" y="36" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607449012232">
+    <state x="96" y="36" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607644285282">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state x="96" y="36" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.760@0.0.1280.760" timestamp="1607449012232" />
+    <state x="96" y="36" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.760@0.0.1280.760" timestamp="1607644285282" />
     <state x="405" y="183" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607449630096">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
@@ -101,6 +125,10 @@
       <screen x="0" y="0" width="1280" height="760" />
     </state>
     <state x="321" y="116" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.760@0.0.1280.760" timestamp="1607337971587" />
+    <state width="492" height="466" key="DebuggerActiveHint" timestamp="1607644635763">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="492" height="466" key="DebuggerActiveHint/0.0.1280.760@0.0.1280.760" timestamp="1607644635763" />
     <state x="309" y="159" key="EditFileWatcherDialog" timestamp="1607447082153">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
@@ -109,14 +137,46 @@
       <screen x="0" y="0" width="1280" height="760" />
     </state>
     <state x="421" y="135" key="FileChooserDialogImpl/0.0.1280.760@0.0.1280.760" timestamp="1607337992914" />
+    <state width="1237" height="189" key="GridCell.Tab.0.bottom" timestamp="1607695392490">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1237" height="189" key="GridCell.Tab.0.bottom/0.0.1280.760@0.0.1280.760" timestamp="1607695392490" />
+    <state width="1237" height="189" key="GridCell.Tab.0.center" timestamp="1607695392490">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1237" height="189" key="GridCell.Tab.0.center/0.0.1280.760@0.0.1280.760" timestamp="1607695392490" />
+    <state width="1237" height="189" key="GridCell.Tab.0.left" timestamp="1607695392490">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1237" height="189" key="GridCell.Tab.0.left/0.0.1280.760@0.0.1280.760" timestamp="1607695392490" />
+    <state width="1237" height="189" key="GridCell.Tab.0.right" timestamp="1607695392490">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1237" height="189" key="GridCell.Tab.0.right/0.0.1280.760@0.0.1280.760" timestamp="1607695392490" />
+    <state width="1237" height="236" key="GridCell.Tab.1.bottom" timestamp="1607694567013">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1237" height="236" key="GridCell.Tab.1.bottom/0.0.1280.760@0.0.1280.760" timestamp="1607694567013" />
+    <state width="1237" height="236" key="GridCell.Tab.1.center" timestamp="1607694567012">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1237" height="236" key="GridCell.Tab.1.center/0.0.1280.760@0.0.1280.760" timestamp="1607694567012" />
+    <state width="1237" height="236" key="GridCell.Tab.1.left" timestamp="1607694567012">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1237" height="236" key="GridCell.Tab.1.left/0.0.1280.760@0.0.1280.760" timestamp="1607694567012" />
+    <state width="1237" height="236" key="GridCell.Tab.1.right" timestamp="1607694567013">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1237" height="236" key="GridCell.Tab.1.right/0.0.1280.760@0.0.1280.760" timestamp="1607694567013" />
     <state x="142" y="26" key="SettingsEditor" timestamp="1607447084691">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
     <state x="142" y="26" key="SettingsEditor/0.0.1280.760@0.0.1280.760" timestamp="1607447084691" />
-    <state x="347" y="113" width="594" height="534" key="find.popup" timestamp="1607447204484">
+    <state x="347" y="113" width="594" height="592" key="find.popup" timestamp="1607691343998">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state x="347" y="113" width="594" height="534" key="find.popup/0.0.1280.760@0.0.1280.760" timestamp="1607447204484" />
+    <state x="347" y="113" width="594" height="592" key="find.popup/0.0.1280.760@0.0.1280.760" timestamp="1607691343998" />
     <state x="303" y="81" width="672" height="678" key="search.everywhere.popup" timestamp="1607473679066">
       <screen x="0" y="0" width="1280" height="760" />
     </state>

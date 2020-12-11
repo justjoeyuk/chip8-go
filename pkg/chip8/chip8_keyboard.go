@@ -7,26 +7,26 @@ type Keyboard struct {
 	// LastKeyPressed on the Keyboard
 	LastKeyPressed byte
 
-	// WaitingForKeyPress if enabled, game loop will be locked until key press
-	WaitingForKeyPress bool
+	// LockKeypressToRegister if -1, game loop will be locked until key press. The key is then stored in register x
+	LockKeypressToRegister int
 }
 
 // NewKeyboard - Returns and instance of Keyboard
 func NewKeyboard() *Keyboard {
-	return &Keyboard{}
+	return &Keyboard{LockKeypressToRegister: -1}
 }
 
 // IsKeyDown - returns if a given key is pressed or not
-func (k *Keyboard) IsKeyDown(key byte) bool {
+func (k *Keyboard) IsKeyDown(key uint8) bool {
 	return k.keys[key]
 }
 
 // PressKey - set the given key to true (pressed)
-func (k *Keyboard) PressKey(key byte) {
+func (k *Keyboard) PressKey(key uint8) {
 	k.keys[key] = true
 }
 
 // ReleaseKey - set the given key to false (released)
-func (k *Keyboard) ReleaseKey(key byte) {
+func (k *Keyboard) ReleaseKey(key uint8) {
 	k.keys[key] = false
 }

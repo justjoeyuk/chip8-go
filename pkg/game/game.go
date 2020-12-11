@@ -3,6 +3,8 @@ package game
 import (
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/justjoeyuk/chip8-go/pkg/chip8"
+	"image/color"
+	"time"
 )
 
 var keyMap = []ebiten.Key{
@@ -21,11 +23,11 @@ type Game struct {
 
 /*	Updates the Emulator Keyboard State and returns
 	which emulator key is pressed, or nil */
-func (g *Game) updateKeys() *byte {
-	var keyPressed *byte = nil
+func (g *Game) updateKeys() *uint8 {
+	var keyPressed *uint8 = nil
 
 	for index, key := range keyMap {
-		emuKey := byte(index)
+		emuKey := uint8(index)
 
 		if ebiten.IsKeyPressed(key) {
 			keyPressed = &emuKey
@@ -48,12 +50,17 @@ func (g *Game) Update() error {
 	}
 
 	counter := g.Chip8Emulator.GetProgramCounter()
-
 	nextCode := g.Chip8Emulator.Memory.GetTwoBytes(counter)
+
 	g.Chip8Emulator.ExecOp(nextCode)
 
 	if counter == g.Chip8Emulator.GetProgramCounter() {
 		g.Chip8Emulator.IncrementProgramCounter()
+	}
+
+	if g.Chip8Emulator.DelayTimer() > 0 {
+		time.Sleep(time.Duration(g.Chip8Emulator.DelayTimer()))
+		g.Chip8Emulator.SetDelayTimer(0)
 	}
 
 	return nil
@@ -61,6 +68,17 @@ func (g *Game) Update() error {
 
 // Draw The Render Loop
 func (g *Game) Draw(screen *ebiten.Image) {
+	for y := 0; y < 32; y++ {
+		for x := 0; x < 64; x++ {
+			pixelState := g.Chip8Emulator.Screen.GetPixelState(x, y)
+			if pixelState {
+				g.Chip8Screen.Set(x, y, color.White)
+			} else {
+				g.Chip8Screen.Set(x, y, color.Black)
+			}
+		}
+	}
+
 	screen.DrawImage(g.Chip8Screen, g.ScaleOptions)
 }
 
